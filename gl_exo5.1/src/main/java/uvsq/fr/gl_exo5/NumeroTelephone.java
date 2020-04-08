@@ -1,6 +1,10 @@
 package uvsq.fr.gl_exo5;
 
-public class NumeroTelephone {
+public class NumeroTelephone implements java.io.Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Type type;
 	private String telephone;
 	

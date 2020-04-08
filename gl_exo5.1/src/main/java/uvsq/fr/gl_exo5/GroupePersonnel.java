@@ -1,8 +1,13 @@
 package uvsq.fr.gl_exo5;
 
+
 import java.util.ArrayList;
 
-public class GroupePersonnel implements ComportementPersonnel  {
+public class GroupePersonnel implements ComportementPersonnel,java.io.Serializable  {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	final ArrayList<ComportementPersonnel> listepersonnel ;
 	public GroupePersonnel() {
 		listepersonnel = new ArrayList<ComportementPersonnel>();
@@ -25,15 +30,16 @@ public class GroupePersonnel implements ComportementPersonnel  {
 	
 	public ArrayList<ComportementPersonnel> getlistepersonnel() {
 		return this.listepersonnel;}
-	
-	
-	@Override
+
 	public void print() {
 		// TODO Auto-generated method stub
-			for (ComportementPersonnel p :listepersonnel) {
-				p.print(); 
-				}
+		for (ComportementPersonnel p :listepersonnel) {
+			p.print(); 
 			}
+		
+	}
+	
+	
 
 
 

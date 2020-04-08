@@ -1,11 +1,16 @@
 package uvsq.fr.gl_exo5;
 
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 
-public final class PERSONNE implements ComportementPersonnel{
+public final class PERSONNE implements ComportementPersonnel,java.io.Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private final String nom ;
 	private final String prenom ;
 	private final fonction fonction ;
