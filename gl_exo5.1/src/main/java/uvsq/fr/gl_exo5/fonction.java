@@ -15,10 +15,25 @@ package uvsq.fr.gl_exo5;
 public enum fonction {
 /**
      * L'énumération des fonctions.
+     * directeur
      * @since 2020
      */
  directeur,
+ /**
+  * L'énumération des fonctions.
+  * charger_de_mission
+  * @since 2020
+  */
  charger_de_mission,
+ /**
+  * L'énumération des fonctions.
+  * emplyer
+  * @since 2020
+  */
  emplyer,
- vendeur;
-}
+ /**
+  * L'énumération des fonctions.
+  * vendeur
+  * @since 2020
+  */
+ vendeur; }

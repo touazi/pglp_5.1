@@ -18,7 +18,7 @@ import java.util.List;
  * @author TOUAZI,Lylia
  */
 
-public final class PERSONNE implements ComportementPersonnel,
+public final class PERSONNE implements ComportementPersonne,
 java.io.Serializable {
 /**
  * * a default serial version ID.
@@ -174,4 +174,5 @@ java.io.Serializable {
 		System.out.println("  Je suis "  +  this.nom  + " " + this.prenom + "  née le  "  + 
 		this.dateNaissance  +  " et je travaille comme " + this.fonction);
 		}
+
 	}

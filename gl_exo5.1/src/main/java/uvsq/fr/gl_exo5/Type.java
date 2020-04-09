@@ -12,9 +12,19 @@ package uvsq.fr.gl_exo5;
 public enum Type {
 /**
      * L'énumération des télephones.
+     * fix_perso
      * @since 2020
      */
 fix_perso,
+/**
+ * L'énumération des télephones.
+ * fix_pro
+ * @since 2020
+ */
 fix_pro,
-portable;
-}
+/**
+ * L'énumération des télephones.
+ * portable
+ * @since 2020
+ */
+portable; }
