@@ -18,10 +18,11 @@ import java.util.List;
  * @author TOUAZI,Lylia
  */
 
-public final class PERSONNE implements ComportementPersonnel , java.io.Serializable {
+public final class PERSONNE implements ComportementPersonnel,
+java.io.Serializable {
 /**
-	 * a default serial version ID
-	 */
+ * * a default serial version ID.
+*/
 	private static final long serialVersionUID = 1L;
 /**
  * Le nom de la personne.
@@ -43,7 +44,7 @@ public final class PERSONNE implements ComportementPersonnel , java.io.Serializa
  * */
 	private final LocalDate dateNaissance;
 /**
- * La liste des numéro de telephone de la personne. 
+ * La liste des numéro de telephone de la personne.
  * */
 	private final List<NumeroTelephone> numerosTelephone;
 /**
@@ -75,31 +76,44 @@ public final class PERSONNE implements ComportementPersonnel , java.io.Serializa
 	     * <p>
 	     * A la construction builder personne pour le nom et le prenom.
 	     * </p>
-	     * * @param nom.
+	     * * @param  nom
 	     * Le nom de la PERSONNEBuilder.
-	     * @param prenom.
+	     * @param prenom
 	     * Le prenom de la PERSONNEBuilder.
 	     */
-		public PERSONNEBuilder(String nom , String prenom) {
+		public PERSONNEBuilder(String nom, String prenom) {
 			this.prenom = prenom;
 			this.nom = nom;
 			}
 	    /**
 	     * méthode fonction.
-	     * * @param fonction.
+	     * * @param fonction
 	     * La fonction de la PERSONNEBuilder.
 	     * @return
 	     * PERSONNEBuilder.
 	     */
-		public PERSONNEBuilder fonction( fonction fonction) {
+		public PERSONNEBuilder fonction(fonction fonction) {
 			this.fonction = fonction;
 			return this;
 			}	
-		
+	    /**
+	     * méthode dateNaissance.
+	     * * @param dateNaissance
+	     * La date Naissance de la PERSONNEBuilder.
+	     * @return
+	     * PERSONNEBuilder.
+	     */
 		public PERSONNEBuilder dateNaissance(LocalDate dateNaissance) {
 			this.dateNaissance = dateNaissance;
 			return this;
 			}
+		  /**
+	     * méthode addNumeroTelephone.
+	     * * @param numeroTelephone
+	     * Le numero Telephone de la PERSONNEBuilder.
+	     * @return
+	     * PERSONNEBuilder.
+	     */
 		public PERSONNEBuilder addNumeroTelephone(NumeroTelephone numeroTelephone) {
 			this.numerosTelephone.add(numeroTelephone);
 			return this;
@@ -112,8 +126,7 @@ public final class PERSONNE implements ComportementPersonnel , java.io.Serializa
 	 * cette méthode renvoie un nouvel objet de la classe personne,il copie les valeurs des champs du générateur vers lui-même..
 	 * @param builder
 	 * c'est l'objet pour le quel on veux crée un nouveau objet.
-	 * */ 
-	
+	 * */
 	private PERSONNE(PERSONNEBuilder builder) {
 		nom = builder.nom;
 		prenom = builder.prenom;
@@ -124,7 +137,7 @@ public final class PERSONNE implements ComportementPersonnel , java.io.Serializa
 	/**La methode getNom.
 	 * @return
 	 * le getNom de la personne.
-	 * */ 
+	 * */
 	public String getNom() {
 		return nom;
 		}
@@ -158,6 +171,7 @@ public final class PERSONNE implements ComportementPersonnel , java.io.Serializa
 	/**la methode print.*/
 	public void print() {
 		// TODO Auto-generated method stub
-		System.out.println("  Je suis "+this.nom+" "+this.prenom+"  née le  "+this.dateNaissance +" et je travaille comme "+this.fonction) ;
+		System.out.println("  Je suis "  +  this.nom  + " " + this.prenom + "  née le  "  + 
+		this.dateNaissance  +  " et je travaille comme " + this.fonction);
 		}
 	}
