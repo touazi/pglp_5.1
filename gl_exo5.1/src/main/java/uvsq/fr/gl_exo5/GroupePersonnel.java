@@ -8,9 +8,11 @@ public class GroupePersonnel implements ComportementPersonnel,java.io.Serializab
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private int  IdGroupe;
 	final ArrayList<ComportementPersonnel> listepersonnel ;
 	public GroupePersonnel() {
 		listepersonnel = new ArrayList<ComportementPersonnel>();
+		IdGroupe=1 + (int)(Math.random() * ((1000 - 1) + 1));
 	}
 	
 	
@@ -30,7 +32,9 @@ public class GroupePersonnel implements ComportementPersonnel,java.io.Serializab
 	
 	public ArrayList<ComportementPersonnel> getlistepersonnel() {
 		return this.listepersonnel;}
-
+public String getId() {
+	return IdGroupe+" ";
+}
 	public void print() {
 		// TODO Auto-generated method stub
 		for (ComportementPersonnel p :listepersonnel) {
@@ -38,13 +42,4 @@ public class GroupePersonnel implements ComportementPersonnel,java.io.Serializab
 			}
 		
 	}
-	
-	
-
-
-
-
-
-  
-
 }

@@ -1,29 +1,31 @@
 package uvsq.fr.gl_exo5;
 
-public class PersonneDaO implements DAO<PERSONNE> {
+import java.io.Serializable;
+
+public class PersonneDaO <T extends Serializable> extends Serialization<PERSONNE>  implements DAO<PERSONNE>  {
 
 	@Override
 	public PERSONNE create(PERSONNE obj) {
 		// TODO Auto-generated method stub
-		return null;
+		return createFile(obj, obj.getNom());
 	}
 
 	@Override
-	public PERSONNE find(String id) {
+	public PERSONNE read(String id) {
 		// TODO Auto-generated method stub
-		return null;
+		return readFile(id);
 	}
 
 	@Override
 	public PERSONNE update(PERSONNE obj) {
 		// TODO Auto-generated method stub
-		return null;
+		return updateFile(obj, obj.getNom());
 	}
 
 	@Override
 	public void delete(PERSONNE obj) {
 		// TODO Auto-generated method stub
-		
+		deleteFile(obj.getNom());
 	}
 
 
