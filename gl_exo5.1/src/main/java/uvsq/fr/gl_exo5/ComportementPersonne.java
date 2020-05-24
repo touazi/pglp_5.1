@@ -1,8 +1,11 @@
 package uvsq.fr.gl_exo5;
+
 /**
-*interface ComportementPersonne.
-* @author Lylia touazi
-*/
+ * interface ComportementPersonne.
+ *
+ * @author Lylia touazi
+ */
 public interface ComportementPersonne {
-	public void print();
-	}
+/** methode print. */
+void print();
+}

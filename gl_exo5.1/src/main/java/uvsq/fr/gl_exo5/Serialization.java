@@ -1,4 +1,5 @@
 package uvsq.fr.gl_exo5;
+
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -7,64 +8,107 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
-/**class abstract Serialization
- * @author lylia
- * */
+
+/**.
+ * class abstract Serialization.
+ *
+ * @author lylia touazi
+ * @param <T> objet
+ */
 public abstract class Serialization<T extends Serializable> {
-	/***/
-	public T createFile(T obj, String filename) {
-		if (exists(filename)) {
-			deleteFile(filename);
-			}
-		writeFile(obj, filename);
+/**
+ * methode createFile.
+ *
+ * @param obj obj a créee.
+ * @param filename nom ficher.
+ * @return obj crée
+ */
+public final T createFile(final T obj, final String filename) {
+if (exists(filename)) {
+   deleteFile(filename);
+}
+writeFile(obj, filename);
+return obj;
+}
+
+/**
+ * methode readFile.
+ *
+ * @param filename nom ficher.
+ * @return obj lue
+ */
+public final T readFile(final String filename) {
+try (ObjectInputStream in = new ObjectInputStream(
+			new BufferedInputStream(
+					new FileInputStream(filename)))) {
+		@SuppressWarnings("unchecked")
+		T obj = (T) in.readObject();
 		return obj;
-		}
-	public T readFile(String filename) {
-		try (ObjectInputStream in =
-				new ObjectInputStream(
-						new BufferedInputStream(
-								new FileInputStream(filename)))) {
-			T obj = (T) in.readObject();
-			return obj;
-			} catch (ClassNotFoundException | IOException e) {
-				return null;
-				}
-		}
-	public T updateFile(T obj, String filename) {
-		if (!exists(filename)) {
-			createFile(obj, filename);
-			}
-		deleteFile(filename);
-		writeFile(obj, filename);
-		return obj;
-		}
-	public void deleteFile(String filename) {
-		File file = new File(filename); 
-        		file.delete();
-        		}
-	
-	private boolean exists(String filename) {
-		File file = new File(filename); 
-        return file.exists();
-        }
-	
-	public void writeFile(T obj, String filename) {
-		ObjectOutputStream oos = null;
-		try {
-			final FileOutputStream fichier = new FileOutputStream(filename);
-			oos = new ObjectOutputStream(fichier);
-			oos.writeObject(obj);
-			} catch (final java.io.IOException e) {
-				e.printStackTrace();
-				} finally {
-					try {
-						if (oos != null) {
-							oos.flush();
-							oos.close();
-							}
-						} catch (final IOException ex) {
-							ex.printStackTrace();
-							}
-					}
-		}
+	} catch (ClassNotFoundException | IOException e) {
+		return null;
 	}
+}
+
+/**
+ * methode updateFile.
+ *
+ * @param obj      obj a créee.
+ * @param filename nom ficher.
+ * @return obj modifier
+ */
+public final T updateFile(final T obj, final String filename) {
+	if (!exists(filename)) {
+		createFile(obj, filename);
+	}
+	deleteFile(filename);
+	writeFile(obj, filename);
+	return obj;
+}
+
+/**
+ * methode deleteFile.
+ *
+ * @param filename nom ficher.
+ */
+public final void deleteFile(final String filename) {
+	File file = new File(filename);
+	file.delete();
+}
+
+/**
+ * methode exists.
+ *
+ * @param filename nom ficher.
+ * @return true si l'objet existe et false sinon.
+ */
+private boolean exists(final String filename) {
+  File file = new File(filename);
+  return file.exists();
+}
+
+/**
+ * methode writeFile.
+ *
+ * @param obj      à ecrire.
+ * @param filename nom ficher.
+ */
+public final void writeFile(final T obj, final String filename) {
+ObjectOutputStream oos = null;
+try {
+ final FileOutputStream fichier = new FileOutputStream(filename);
+ oos = new ObjectOutputStream(fichier);
+ oos.writeObject(obj);
+} catch (final java.io.IOException e) {
+ e.printStackTrace();
+} finally {
+	try {
+	  if (oos != null) {
+		 oos.flush();
+		 oos.close();
+		}
+	} catch (final IOException ex) {
+		ex.printStackTrace();
+	}
+}
+}
+}

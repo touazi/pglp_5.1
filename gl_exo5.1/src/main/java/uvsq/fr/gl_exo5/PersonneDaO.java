@@ -2,32 +2,59 @@ package uvsq.fr.gl_exo5;
 
 import java.io.Serializable;
 
-public class PersonneDaO <T extends Serializable> extends Serialization<PERSONNE>  implements DAO<PERSONNE>  {
+/**
+ * class PersonneDaO.
+ *
+ * @author lylia touazi
+ * @param <T> obj
+ */
+public class PersonneDaO<T extends Serializable>
+extends Serialization<PERSONNE> implements DAO<PERSONNE> {
+/**
+ * methode create.
+ *
+ * @param obj personne a créee
+ * @return personne crée
+ */
+@Override
+public final PERSONNE create(final PERSONNE obj) {
+// TODO Auto-generated method stub
+return createFile(obj, obj.getNom());
+}
 
-	@Override
-	public PERSONNE create(PERSONNE obj) {
-		// TODO Auto-generated method stub
-		return createFile(obj, obj.getNom());
-	}
+/**
+ * methode create.
+ *
+ * @param id nom de la personne
+ * @return personne trouver
+ */
+@Override
+public final PERSONNE read(final String id) {
+// TODO Auto-generated method stub
+return readFile(id);
+}
 
-	@Override
-	public PERSONNE read(String id) {
-		// TODO Auto-generated method stub
-		return readFile(id);
-	}
+/**
+ * methode update.
+ *
+ * @param obj la personne à modifier
+ * @return personne modifier
+ */
+@Override
+public final PERSONNE update(final PERSONNE obj) {
+// TODO Auto-generated method stub
+return updateFile(obj, obj.getNom());
+}
 
-	@Override
-	public PERSONNE update(PERSONNE obj) {
-		// TODO Auto-generated method stub
-		return updateFile(obj, obj.getNom());
-	}
-
-	@Override
-	public void delete(PERSONNE obj) {
-		// TODO Auto-generated method stub
-		deleteFile(obj.getNom());
-	}
-
-
+/**
+ * methode delete.
+ *
+ * @param obj la personne à suprimer
+ */
+@Override
+public final void delete(final PERSONNE obj) {
+// TODO Auto-generated method stub
+deleteFile(obj.getNom());
+}
 
 }
